@@ -1,0 +1,418 @@
+/BAB 1/
+CLASS VS OBJEK
+
+Struktur data yang bisa kita gunakan untuk mendefinisikan objek yang menyimpan data bersama-sama nilai-nilai dan perilaku (behavior). Kelas adalah suatu entitas yang merupakan bentuk program dari suatu abstraksi untuk permasalahan dunia nyata, dan instans dari class merupakan realisasi dari beberapa objek.
+
+class merupakan sebuah objek yang di dalam nya biasanya terdapat beberapa metode yang memang merupakan isi dari sebuah class ini. Class dan metode ini biasa di sembut sebagai OOP atau object oriented programing. Dan OOP ini memang fungsinya untuk memudahkan proses atau kegiatan programing, class ini merupakan sebuah objek yang lebih complex dengan di dalamnya berisi beberapa metode Jadi, kalau metode berisi berbagai code program, maka class berisi beberapa metode.
+
+Jadi, jika kita analogikan terhadap kehidupan nyata, konsepnya bisa kita analogikan terhadap sebuah ruang kelas. Dimana ruang kelas nya berfungsi sebagai class nya Dan benda - benda yang ada di dalamnya seperti meja, kursi, papan, spidol dan yang lainnya adalah sebuah metode yang bisa kita panggil agar aktif bekerja sesuai fungsinya. Seperti sepidol yang berfungsi untuk menulis.
+
+untuk membuat sebuah class ini, harus kita awali dengan sebuah kata kunci. Yaitu “class” yang kemudian di ikuti dengan “nama class nya”.. Dan yang terakhir adalah tanda kurung buka dan tutup serta tanda titik dua “()” dan ‘:’.
+
+    class namaClass () :
+        def methode 1 (self) :
+            Isi methode
+        def metodhe 2 (self) :
+            Isi metodhe
+        
+untuk memanggil sebuah class, sama saja seperti layak nya memanggil metodhe Kita cukup menyebutkan nama classnya dengan di akhiri dengan tanda kurung buka dan tutup seperti di bawah ini
+
+    namaClass()
+
+untuk memanggil metodhenya, kita cukup menggunakan memanggil class yang kemudian di ikuti dengan pemanggilan nama metode yang tersedia di dalam class tersebut dengan di pisahkan oleh tanda titik.
+
+    namaClass().namaMetode()
+
+kemudian kita panggil metodenya seperti di bawah ini
+
+    penampung = namaClass()
+    penampung.namaMetode()
+
+Di dalam sebuah class, terdapat sebuah metode yang namanya sudah di sediakan oleh python Namanya adalah “__init__”. 
+
+    class namaClass () :
+        def __init__() :
+            Isi yang ingin kalian masukkkan
+        def metode 1 (self) :
+            Isi metode
+        def metode 2 (self) :
+            Isi metode
+            
+jika terdapat parameter
+
+    class namaClass () :
+        def __init__(self, parameter) :
+            Code program yang akan kalian eksekusi pertama kali.
+        def metode 1 (self, parameter) :
+            Isi metode
+        def metode 2 (self) :
+            Isi metode
+
+Dan untuk memanggil sebuah class yang memiliki parameter, tentu kita harus memasukkan sebuah nilai saat pemanggilannya. 
+
+namaClass(isiNilai)
+
+class kubus :
+    def __init__(self,s):
+        self.sisi = s
+        
+    def tampilkansisi(self):
+        print (self.sisi)
+        
+    def tampilkanluas(self):
+        print("luas =" ,self.sisi**2)
+    
+    def tampilkanvolume(self):
+        print ("volume =" ,self.sisi**3)
+        
+    def tampilkanluaspermukaan(self):
+        print ("luas permukaan =" ,6*(self.sisi**2))
+    
+kubus1 = kubus(4)
+kubus1.tampilkansisi()
+kubus1.tampilkanluas()
+kubus1.tampilkanvolume()
+kubus1.tampilkanluaspermukaan()
+
+JIKA DI RUN:
+4
+luas = 16
+volume = 64
+luas permukaan = 96
+
+====================================================
+/BAB 2/
+INHERITANCE
+
+Inheritance (Pewarisan atau turunan) merupakan sebuah konsep dalam pemrograman yang paling penting, pada inheritance terdapat sebuah proses dimana sebuah class dapat mengakses semua property dan semua method yang terdapat dari class yang lainnya. 
+
+Jika kita berpikir tentang pewarisan dalam hal biologi, kita dapat memikirkan seorang anak yang mewarisi sifat-sifat tertentu dari orang tua mereka. Artinya, seorang anak dapat mewarisi tinggi atau warna mata orang tua. Anak-anak juga dapat berbagi nama belakang yang sama dengan orang tua mereka.
+Kelas yang disebut kelas anak atau subclass mewarisi metode dan variabel dari kelas induk atau kelas dasar.
+
+CONTOH CODING:
+
+class user :
+    name = ""
+    def __init__ (self,name):
+        self.nama = name
+    def printnama(self):
+        print("name =",self.nama)
+class programmer(user):
+    def __init__(self,name):
+        self.nama = name
+    def dopython(self):
+        print("programming python")
+        
+brian = user("brian")
+brian.printnama()
+diana = programmer("diana")
+diana.printnama()
+diana.dopython()
+
+JIKA DIRUN:
+name = brian
+name = diana
+programming python
+
+Brian adalah turunan dari Pengguna dan hanya dapat mengakses metode printName. Diana adalah turunan dari Programmer, kelas dengan warisan dari Pengguna, dan dapat mengakses kedua metode dalam Programmer dan Pengguna.
+
+===========================
+/BAB 3/.
+TYPE OF INHERITANCE
+
+ada 4 jenis inheritance
+
+1. Default: property, property dan method
+
+    class Fish: 
+        def __init__(self, first_name, last_name="Fish", skeleton="bone", eyelids=False): 
+            self.first_name = first_name 
+            self.last_name = last_name 
+            self.skeleton = skeleton 
+            self.eyelids = eyelids 
+        def swim(self): 
+            print("The fish is swimming.") 
+        def swim_backwards(self): 
+            print("The fish can swim backwards."
+     class Trout (Fish): 
+        pass 
+     class Clownfish(Fish): 
+        def live_with_anemone(self): 
+            print("The clownfish is coexisting with sea anemone.") 
+
+2.Overriding: property/method, property dan method
+
+    class Fish: 
+        def __init__(self, first_name, last_name="Fish", skeleton="bone", eyelids=False): 
+            self.first_name = first_name 
+            self.last_name = last_name 
+            self.skeleton = skeleton 
+            self.eyelids = eyelids 
+        def swim(self): 
+            print("The fish is swimming.") 
+        def swim_backwards(self): 
+            print("The fish can swim backwards.") 
+   
+    class Shark(Fish): 
+        def __init__(self, first_name, last_name="Shark", skeleton="cartilage", eyelids=True): 
+            self.first_name = first_name 
+            self.last_name = last_name 
+            self.skeleton = skeleton 
+            self.eyelids = eyelids 
+        def swim_backwards(self): 
+            print("The shark cannot swim backwards, but can sink backwards.") 
+
+3.Super: property
+
+    class Trout(Fish):
+            def __init__(self,water,first_name, last_name,skeleton,eyelids):
+            self.water = water
+            Fish.__init__(self,first_name, last_name,skeleton, eyelids)
+            super().__init__(self,first_name, last_name,skeleton, eyelids)
+
+    terry = Trout("freshwater","shark","fish","no bone","true")
+    print(terry.first_name)
+    
+CONTOH CODING SUPER:
+
+class orang:
+    def __init__(self,nama):
+        self.nama = nama
+    def tampilkan(self):
+        print("nama saya",self.nama)
+        
+class karyawan(orang):
+    def __init__(self,kp,nama):
+        super().__init__(nama)
+        self.kodepegawai = kp
+    def tampilkan(self):
+        print("kode pegawai",self.kodepegawai,)
+        
+class karyawancabang(karyawan):
+    def __init__(self,klc,kp,nama):
+        super().__init__(nama,kp)
+        self.kodelokasicabang = klc
+    def tampilkan(self):
+        print("kode lokasi cabang",self.kodelokasicabang,)
+
+o1 = orang("fandy")
+o1.tampilkan()
+o2 = karyawan("123","fandy")
+o2.tampilkan()
+o3 = karyawancabang("001","fandy","123")
+o3.tampilkan()
+
+JIKA DIRUN:
+nama saya fandy
+kode pegawai 123
+kode lokasi cabang 001
+
+4. multiple
+
+    class Coral: 
+        def community(self): 
+            print("Coral lives in a community.") 
+
+    class Anemone: 
+        def protect_clownfish(self): 
+            print("The anemone is protecting the clownfish.") 
+
+    class CoralReef(Coral, Anemone): 
+        pass 
+      
+    great_barrier = CoralReef() 
+    great_barrier.community() 
+    great_barrier.protect_clownfish() 
+    
+ JIKA DIRUN:
+
+Coral lives in a community.
+The anemone is protecting the clownfish.
+
+======================
+/BAB 4/
+POLYMORPHISME
+
+Polimorfisme didasarkan pada kata-kata Yunani
+Poli (banyak) dan morfisme (bentuk).
+Kami akan membuat struktur yang dapat mengambil atau menggunakan banyak bentuk objek.
+
+class Shark():
+    def swim(self):
+        print("The shark is swimming.")
+    def swim_backwards(self):
+        print("The shark cannot swim backwards, but can sink backwards.")
+    def skeleton(self):
+        print("The shark's skeleton is made of cartilage.")
+
+class Clownfish():
+    def swim(self):
+        print("The clownfish is swimming.")
+    def swim_backwards(self):
+        print("The clownfish can swim backwards.")
+    def skeleton(self):
+        print("The clownfish's skeleton is made of bone.")
+
+sammy = Shark()
+sammy.skeleton()
+
+casey = Clownfish()
+casey.skeleton()
+
+JIKA DI RUN:
+
+The shark's skeleton is made of cartilage.
+The clownfish's skeleton is made of bone.
+
+ada banyak jenis polymorphisme
+
+1.Polymorphism with a Function
+
+membuat fungsi yang dapat mengambil objek apa pun, memungkinkan untuk polimorfisme.
+
+class shark():
+    def swim(self):
+        print("the sharknis swimming")
+        
+    def swim_backwards(self):
+        print("the shark cannot swim backwards, but can sink backwards")
+        
+    def skeleton(self):
+        print("the shark's skeleton is made or cartilage")
+        
+class clownfish():
+    def swim(self):
+        print("the clown fish can swim backwards")
+        
+    def swim_backwards(self):
+        print("the clownfish can swim backwards")
+        
+    def skeleton(self):
+        print("the clownfish skeleton is made of bone")
+        
+sammy = shark()
+sammy.skeleton()
+casey = clownfish()
+casey.skeleton()
+
+def in_the_pacific(fish):
+    fish.swim()
+
+in_the_pacific(sammy)
+in_the_pacific(casey)
+
+JIKA DI RUN:
+the shark's skeleton is made or cartilage
+the clownfish skeleton is made of bone
+the sharknis swimming
+the clown fish can swim backward
+
+Objek casey disebut metode swim () didefinisikan dalam kelas Clownfish,
+dan objek sammy yang disebut metode swim () didefinisikan dalam kelas Shark.
+---------------------------
+class fish:
+    def __init__(self,first_name,last_name="fish",skeleton="bone",eyelids="false"):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.skeleton = skeleton
+        self.eyelids = eyelids
+    def swim(self):
+        print("the fish is swimming")
+    def swim_backwards(self):
+        print("the fish can swim backwards")
+class trout(fish):
+    pass
+class clownfish(fish):
+    def live_with_anemone(self):
+        print("the clown fish is coexisting with see anemone")
+class trout(fish):
+    pass
+terry = trout("terry")
+print(terry.first_name + "" + terry.last_name)
+print(terry.skeleton)
+print(terry.eyelids)
+terry.swim()
+terry.swim_backwards()
+casey = clownfish("casey")
+print(casey.first_name + "" + casey.last_name)
+casey.swim()
+casey.live_with_anemone()                 
+
+JIKA DI RUN:
+terryfish
+bone
+false
+the fish is swimming
+the fish can swim backwards
+caseyfish
+the fish is swimming
+the clown fish is coexisting with see anemone
+
+
+2. polymorphisme with method
+
+metode-metode ini dengan cara tanpa mengetahui atau tidak peduli apa tipe kelas dari masing-masing objek ini. Artinya, menggunakan metode ini secara polimorfik.
+
+class document:
+    def __init__(self,name):
+        self.name = name
+    def show(self):
+        raise notimplementederror("subclass must implement abstract method")
+class pdf(document):
+    def show(self):
+        return 'show pdf contents!'
+    
+class word(document):
+    def show(self):
+        return 'show word contents'
+
+document = [pdf('document1'),
+           pdf('document2'),
+           word('document3')]
+
+for document in document:
+    print(document.name + ':' + document.show())
+    
+JIKA DIRUN:
+document1:show pdf contents!
+document2:show pdf contents!
+document3:show word contents
+
+
+3. polymorphisme abstarct class
+
+kelas abstrak yang disebut dokumen. Kelas ini tidak memiliki implementasi tetapi mendefinisikan struktur (dalam bentuk fungsi) yang harus dimiliki semua bentuk.
+Jika kita mendefinisikan fungsi show () maka baik PdfDocument dan WordDocument harus memiliki fungsi show ().
+
+class car:
+    def __init__(self,name):
+        self.name = name
+    def drive(self):
+        raise notimplementederror("subclass must implement abstract method")
+    def stop(self):
+        raise not implementederror("subclass must implement abstract method")
+
+class sportscar(car):
+    def drive(self):
+        return 'sportscar driving'
+    def stop(self):
+        return 'sportscar braking'
+class truck(car):
+    def drive(self):
+        return 'truck driving slowly because heaavily loaded'
+    def stop(self):
+        return 'truck braking'
+    
+cars = [truck('bananatruck'),
+       truck('orangetruck'),
+       sportscar('23')]
+    
+for car in cars:
+    print(car.name + ':' + car.drive())
+    
+JIKA DIRUN:
+bananatruck:truck driving slowly because heaavily loaded
+orangetruck:truck driving slowly because heaavily loaded
+23:sportscar driving
+
+
